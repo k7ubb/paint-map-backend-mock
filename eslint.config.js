@@ -1,21 +1,30 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import { defineConfig } from 'eslint/config';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
-export default defineConfig({
-	files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
-	plugins: { js },
-	extends: ['js/recommended'],
-	languageOptions: {
-		globals: {
-			...globals.browser,
-			...globals.node,
-			L: 'readonly'
-		}
+export default [
+	{
+		ignores: ['dist'],
 	},
-	rules: {
-		'semi': ['error', 'always'],
-		'quotes': ['error', 'single'],
-		'indent': ['error', 'tab']
+	{
+		files: ['**/*.{js,jsx,ts,tsx}'],
+		languageOptions: {
+			parser: tsParser,
+		},
+		plugins: {
+			'react-hooks': reactHooks,
+			'react-refresh': reactRefresh,
+			import: importPlugin,
+			'jsx-a11y': jsxA11y,
+			'@typescript-eslint': tseslint,
+		},
+		rules: {
+			'semi': ['error', 'always'],
+			'quotes': ['error', 'single'],
+			'indent': ['error', 'tab']
+		},
 	}
-});
+];
