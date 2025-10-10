@@ -238,12 +238,13 @@ app.get('/', (c) => {
 			});
 		}
 			
-		case 'map_generate': {
+		case 'map_get_empty': {
 			const type = c.req.query('type') || 'city';
 			const shareLevel = parseInt(c.req.query('share_level') || '0');
-				
+			
+			const template = mapTemplate[type] || mapTemplate['city'];
+
 			return c.json({
-				type,
 				title: '無題の地図',
 				description: '',
 				legend: [
@@ -255,7 +256,8 @@ app.get('/', (c) => {
 				score_format: 1,
 				data: {},
 				share_level: shareLevel,
-				last_update: getMicrotime()
+				last_update: getMicrotime(),
+				...template
 			});
 		}
 			
