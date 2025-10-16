@@ -30,18 +30,18 @@ const mapTemplate: {
 	[key: string]: {
 		type: string;
 		position: { lat: number; lng: number; zoom: number };
-		source: string;
+		attribution: string;
 		fillLayer: string;
 		outlineLayer?: string;
 		minZoom: number;
 		maxZoom: number;
-		worldCopyJump?: number;
+		worldCopyJump?: boolean;
 	}
 } = {
 	city: {
 		type: 'city',
 		position: { lat: 38.5, lng: 138, zoom: 6 },
-		source: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a> を加工',
+		attribution: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a>',
 		fillLayer: 'data/city.json',
 		outlineLayer: 'data/prefecture.json',
 		minZoom: 5,
@@ -50,7 +50,7 @@ const mapTemplate: {
 	ward: {
 		type: 'ward',
 		position: { lat: 38.5, lng: 138, zoom: 6 },
-		source: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a> を加工',
+		attribution: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a>',
 		fillLayer: 'data/ward.json',
 		outlineLayer: 'data/prefecture.json',
 		minZoom: 5,
@@ -59,7 +59,7 @@ const mapTemplate: {
 	pref: {
 		type: 'pref',
 		position: { lat: 38.5, lng: 138, zoom: 6 },
-		source: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a> を加工',
+		attribution: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a>',
 		fillLayer: 'data/prefecture.json',
 		minZoom: 5,
 		maxZoom: 12,
@@ -67,7 +67,7 @@ const mapTemplate: {
 	'1920': {
 		type: '1920',
 		position: { lat: 38.5, lng: 138, zoom: 6 },
-		source: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a> を加工',
+		attribution: '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-v3_1.html" target="_blank">国土数値情報 [国交省]</a>',
 		fillLayer: 'data/1920-city.json',
 		outlineLayer: 'data/1920-pref.json',
 		minZoom: 5,
@@ -76,7 +76,7 @@ const mapTemplate: {
 	gun: {
 		type: 'gun',
 		position: { lat: 38.5, lng: 138, zoom: 6 },
-		source: '<a href="https://gunmap.booth.pm/items/3053727" target="_blank">郡地図 Ver 1.1</a>を加工',
+		attribution: '<a href="https://gunmap.booth.pm/items/3053727" target="_blank">郡地図 Ver 1.1</a>',
 		fillLayer: 'data/gun.json',
 		outlineLayer: 'data/kuni.json',
 		minZoom: 5,
@@ -85,11 +85,11 @@ const mapTemplate: {
 	world: {
 		type: 'world',
 		position: { lat: 37, lng: 208, zoom: 2 },
-		source: '<a href="https://www.naturalearthdata.com/" target="_blank">Natural Earth</a>を加工',
+		attribution: '<a href="https://www.naturalearthdata.com/" target="_blank">Natural Earth</a>',
 		fillLayer: 'data/world.json',
 		minZoom: 2,
 		maxZoom: 5,
-		worldCopyJump: 1,
+		worldCopyJump: true,
 	}
 };
 
